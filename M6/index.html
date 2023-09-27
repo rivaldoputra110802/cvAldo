@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel = "stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        #map { height: 522px; }
+    </style>
+    <link href="https://tse4.mm.bing.net/th?id=OIP.hIUaXigAz7c6-d9yHfTByQHaHa&pid=Api&P=0&h=180" rel="icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4 PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiX Z5V3ynxwA==" crossorigin=""></script>
+    <script src="jogja.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://rivaldoputra110802.github.io/cvAldo/">Kembali ke CV Aldo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)
+
+                    </span></a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-success my-2 my-sm-0">Lokasi Saya</button>
+            </form>
+        </div>
+    </nav>
+    <div id="map"></div>
+    <script>
+       var map = L.map('map').setView([-7.763023, 110.374009], 18);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map); 
+
+    var ikon=L.icon({
+        iconUrl: 'https://th.bing.com/th/id/OIP.QxixutmAnOW4qAzTFcGh8wHaHa?w=205&h=205&c=7&r=0&o=5&dpr=1.5&pid=1.7',
+        iconSize: [20,23],
+        iconAnchor: [10,13],
+        popupAnchor: [-1,-2]
+    })
+    var ikon2=L.icon({
+        iconUrl: 'https://www.bing.com/th?id=OIP.GR60VA4p-dilpIkM2T0uxAHaHa&pid=3.1&cb=&w=300&h=300&p=0',
+        iconSize: [20,23],
+        iconAnchor: [15,20],
+        popupAnchor: [-1,-2]
+    })
+    var ikon3=L.icon({
+        iconUrl: 'https://th.bing.com/th/id/OIP.MbmwJZFRGl_oISIVdTZOpQHaFR?w=248&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7',
+        iconSize: [20,23],
+        iconAnchor: [15,20],
+        popupAnchor: [-1,-2]
+    })
+    var marker = L.marker([-7.76305, 110.373947],{icon: ikon,title: "Kos Bu Salam"}).addTo(map);
+    var marker2 = L.marker([-7.763199, 110.374001],{icon:ikon2,title: "Warmindo Prikitiuw 06"}).addTo(map),
+    marker3 = L.marker([-7.763525609982611, 110.37386375012748],{icon:ikon2,title: "Bakmi Jawa Pak Jhon" }).addTo(map),
+    marker4 = L.marker([-7.763237839037197, 110.37416155914713],{icon:ikon2,title:"Rumah Makan Pojok Cahyo Prihatmoko"}).addTo(map),
+    marker5 = L.marker([-7.763828, 110.374331],{icon:ikon2, title:"Rumah Makan Mas Kobis"}).addTo(map),
+    marker6 = L.marker([-7.763935, 110.372676],{icon:ikon3,title:"Departemen Teknik Geodesi UGM"}).addTo(map);
+    var line = L.polyline([[-7.763082, 110.373904],[-7.763111, 110.374054],[-7.763207, 110.374272],[-7.763802, 110.374027],[-7.764052, 110.374593],[-7.764179, 110.374553],[-7.764163, 110.374489],[-7.764214, 110.37447],[-7.763544, 110.372788],[-7.76372, 110.372724]]).addTo(map);
+    
+    
+    
+
+    var osmHOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France'});
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+});
+
+    var tempatMakan = L.layerGroup([marker2,marker3,marker4,marker5]);
+    var kupro=L.marker([-7.8580555555556, 110.15972222222]).bindPopup('<b>Kabupaten Kulon Progo<b>'),
+    mbantul=L.marker([-7.8866666666667, 110.3275]).bindPopup('<b>Kabupaten Bantul<b>'),
+    gunkid=L.marker([-7.9644444444444, 110.60138888889]).bindPopup('<b>Kabupaten Gunungkidul<b>'),
+    sleman=L.marker([-7.7166666666667, 110.35583333333]).bindPopup('<b>Kabupaten Sleman<b>'),
+    kotaYog=L.marker([-7.8,110.39111111111]).bindPopup("<b>Kota Yogyakarta<b>");
+    var jogja=L.layerGroup([kupro,mbantul,gunkid,sleman,kotaYog]);
+    marker.bindPopup("<b>Kos Bu Salam</b><br>Ini adalah penanda Kos saya.<img src ='https://lh5.googleusercontent.com/p/AF1QipM9tUU8ZPlvSorp_vAcVzdqpWqCf2PhlfxO9g-x=w408-h308-k-no' style='width:300px'>").openPopup();
+    marker2.bindPopup("<b>Warmindo Prikitiuw 06</b><br>Ini adalah penanda Warmindo tempat saya biasa makan.<br> <img src='https://lh5.googleusercontent.com/p/AF1QipPXLZJTAmI9Ve5fWU--uqXvy_PWr0POC3lLfZxd=w426-h240-k-no' style='width:300px'> <br><p>Makanan kesukaan saya di sini yaitu Nasi dengan jamur cryspy.</p><img src='https://tse1.mm.bing.net/th?id=OIP.2FOqy1ubJ_2qhq_KKXRtUgHaD4&pid=Api&P=0&h=180' style='width:250px'>").openPopup();
+    marker3.bindPopup("<b>Bakmi Jawa Pak Jhon</b><br><p>Makanan kesukaan saya di sini adalah Bakmi Goreng</p><img src='https://tse3.mm.bing.net/th?id=OIP.juM--XKPP_505T2dODHZGQHaFP&pid=Api&P=0&h=180' style='width:300px'>").openPopup();
+    marker4.bindPopup("<b>Rumah Makan Pojok Cahyo Prihatmoko</b><br><p>Makanan kesukaan saya di sini adalah tempe bacem.</p><br><img src='https://tse3.mm.bing.net/th?id=OIP.0QN9g2NDf6sAV3rYNBIXPQHaEK&pid=Api&P=0&h=180' style='width:300px'>").openPopup();
+    marker5.bindPopup("<b>Rumah Makan Mas Kobis</b><br><p>Makanan kesukaan saya di sini adalah telur dadar penyet.</p> <img src='https://img-global.cpcdn.com/003_recipes/a6e331f61d7a0c0e/751x532cq70/photo.jpg' style='width:300px'>")
+    marker6.bindPopup("<b>Departemen Teknik Geodesi UGM</b><br>Ini adalah Gedung Kampus tempat saya berkuliah, yaitu Gedung Departemen Teknik Geodesi UGM.<br><a href='https://geodesi.ugm.ac.id/'>Klik ini menuju Link Website Teknik Geodesi UGM</a><br><img src='https://th.bing.com/th/id/OIP.I047l_9BYQmxrIsXJCGPOQAAAA?w=193&h=159&c=7&r=0&o=5&dpr=1.5&pid=1.7' style='width:300px'>")
+    line.bindPopup("<b>Jalur Jalan ke Kampus</b><br>Garis ini menunjukkan jalur jalan yang biasa saya tempuh untuk menuju kampus dengan berjalan kaki.")
+    var tempatMakan = L.layerGroup([marker2,marker3,marker4,marker5]);
+    var circle = L.circle([-7.76305, 110.373947], {
+    color: 'green',
+    fillColor: 'blue',
+    fillOpacity: 0.2,
+    radius: 100
+}).addTo(map);
+circle.bindPopup("<b>Kawasan Tempat Aldo Biasa Makan</b><br>Ini adalah kawasan batas tempat saya biasa makan.").openPopup();
+    var layer = {
+        'Kos Bu Salam':marker,
+        'Tempat Makan' :tempatMakan,
+        'Departemen Teknik Geodesi':marker6,
+        'Jalur Jalan Ke Kampus':line,
+        'Kawasan Tempat Aldo Biasa Makan':circle,
+        "Jogja":jogja
+        
+
+    }
+    var basemap = {
+        "OpenStreetMap":map,
+        "OpenStreetMap.HOT":osmHOT,
+        "EsriWordlImageri":Esri_WorldImagery
+    }
+    L.control.layers(basemap,layer).addTo(map);
+    
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("Anda mengklik titik dengan koordinat (lintang, bujur) = " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+
+map.on('click', onMapClick);
+
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
+    L.geoJSON(jogjageojson,{ 
+	style: function(feature) { 
+		switch (feature.properties.KABUPATEN) { 
+			case 'Gunung Kidul': return {color: "#ff9900"}; 
+			case 'Sleman': return {color: "red"}; 
+			case 'Bantul': return {color: "blue"}; 
+			case 'Yogyakarta': return {color: "green"}; 
+			case 'Kulon Progo': return {color: "magenta"}; 
+		}
+	 }, 
+	onEachFeature: function (feature, layer) {
+		 layer.bindPopup(
+		 'Kecamatan adalah ' + '<strong>' +feature.properties.KECAMATAN+'</strong>'+' masuk wilayah kabupaten/kota '+'<strong>'+feature.properties.KABUPATEN+'<strong>'
+		 ); 
+	}
+ }).addTo(map);
+
+</script>
+</body>
+</html>
